@@ -4,22 +4,19 @@ This may be my first contribution to the frontend community. This repository con
 
 ## Usage
 `useLoader()`, in its arguments, is taking just an object with the following properties:
-<ol>
-<li><b>`requestURL`: </b>URL of the API endpoint from where the data is to be fetched and meanwhile the loader is displayed (URL to where the request is to be sent).</li>
-<li><b>`requestMethod`: </b>The request method type can be either  `'GET'` or `'POST'` only.</li>
-<li><b>`requestPayload`: </b>It can be whatever payload/data that we want to sent along with request if the `requestMethod` is selected as `'POST'`. It is useless if the `'requestMethod'` is selected as `'GET'`
-</li>
-<li><b>`onSuccess`: </b>The value of this property is a function that we would like to run if the response of the request is successful. This function will get that response itself in its only argument that can be used inside the body of the function for further processing. This is an optional property.</li>
-<li><b>`onFailure`: </b>The value of this property is a function that we would like to run if the response of the request is not successful. This function will get the error itself in its only argument that can be used inside the body of the function for further processing. This is an optional property.</li>
-</ol>
+
+1) <b>`requestURL`: </b>URL of the API endpoint from where the data is to be fetched and meanwhile the loader is displayed (URL to where the request is to be sent).
+2) <b>`requestMethod`: </b>The request method type can be either  `'GET'` or `'POST'` only.
+3) <b>`requestPayload`: </b>It can be whatever payload/data that we want to sent along with request if the `requestMethod` is selected as `'POST'`. It is useless if the `'requestMethod'` is selected as `'GET'`
+4) <b>`onSuccess`: </b>The value of this property is a function that we would like to run if the response of the request is successful. This function will get that response itself in its only argument that can be used inside the body of the function for further processing. This is an optional property.
+5) <b>`onFailure`: </b>The value of this property is a function that we would like to run if the response of the request is not successful. This function will get the error itself in its only argument that can be used inside the body of the function for further processing. This is an optional property.
 
 In return, the hook will give following four things packed inside an array:
-<ol>
-<li><b>`loading`: </b> This is the boolean variable. `true` value suggests that fetching of the data and then, if provided, the execution of `onSuccess()` or `onFailure()`, are still in progress - so that meanwhile we can display the loader of our choice, whereas `false` suggests that they are completed and we can now stop displaying the loader.</li>
-<li><b>`response`: </b> This is the response itself that we get in return of the request. If the request wasn't successful, `response` will be `null`, otherwise we can extract the needed data from it.</li>
-<li><b>`error`: </b> This is the error itself that we get in return of the request. If the request was successful, `error` will be `null`, otherwise we can extract the error related data from it.</li>
-<li><b>`getData`: </b>This is a function which we would like to run in our functional component whenever we need to fetch the data and display the loader meanwhile. In each execution of the function, `loading` will set to `true` and the request will be made according to the values of `requestURL`, `requestMethod` and `requestPayload`. Then, it will also execute `onSuccess()` or `onFailure()` functions if they are provided. At the end it will set `loading` back to `false`.</li>
-</ol>
+
+1) <b>`loading`: </b> This is the boolean variable. `true` value suggests that fetching of the data and then, if provided, the execution of `onSuccess()` or `onFailure()`, are still in progress - so that meanwhile we can display the loader of our choice, whereas `false` suggests that they are completed and we can now stop displaying the loader.
+2) <b>`response`: </b> This is the response itself that we get in return of the request. If the request wasn't successful, `response` will be `null`, otherwise we can extract the needed data from it.
+3) <b>`error`: </b> This is the error itself that we get in return of the request. If the request was successful, `error` will be `null`, otherwise we can extract the error related data from it.
+4) <b>`getData`: </b>This is a function which we would like to run in our functional component whenever we need to fetch the data and display the loader meanwhile. In each execution of the function, `loading` will set to `true` and the request will be made according to the values of `requestURL`, `requestMethod` and `requestPayload`. Then, it will also execute `onSuccess()` or `onFailure()` functions if they are provided. At the end it will set `loading` back to `false`.
 
 ## Example
 
